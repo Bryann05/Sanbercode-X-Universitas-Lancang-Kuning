@@ -1,0 +1,111 @@
+-----------------FEBRIAN MAHENDRA---------------------
+
+----Soal No 1----
+
+# Membuat Database Baru
+    
+    CREATE Database myshop;
+
+----Soal No 2----
+
+# Membuat Tabel
+A. users
+    
+    CREATE TABLE users (
+	id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255) not null,
+    email varchar(255) not null,
+    password varchar(255) not null 
+)
+
+B. categories
+    
+    CREATE TABLE categories(
+	id int PRIMARY KEY  AUTO_INCREMENT,
+    name varchar(255) not null
+)
+
+C. items
+    
+    CREATE TABLE items(
+	id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255) not null,
+    description varchar(255) not null,
+    price int not null,
+    stock int not null,
+    categories_id int not null,
+    FOREIGN KEY(categories_id) REFERENCES categories(id) 
+)
+
+
+----Soal No 3----
+
+# Memasukkan Data Ke Dalam Tabel
+A. Tabel users
+    
+    INSERT INTO users (name,email,password) VALUES ('Febrian Mahendra', 'febrianmahendra2003@gmail.com','yan123');
+    INSERT INTO users (name, email, password) VALUES ('Jane Doe', ' jane@doe.com', 'jenita123');
+
+B. Tabel categories
+    
+    INSERT INTO categories (name)
+    VALUES
+    ('gadget'),
+    ('cloth'),
+    ('men'),
+    ('women'),
+    ('branded');
+
+C. Tabel items
+    
+    INSERT INTO items (name, description, price, stock, categories_id)
+    VALUES
+    ('Sumsang b50', 'hape keren dari merek sumsang', '4000000', '100', '1'),
+    ('Uniklooh', 'baju keren dari brand ternama', '500000', '50', '2'),
+    ('IMHO Watch', 'jam tangan anak yang jujur banget', '2000000', '10', '1');
+
+
+----Soal No 4----
+
+A. Mengambil Data users 
+# Menampilkan Semua data Pada Tabel users kecuali password
+    
+    SELECT name,email
+    FROM users;
+
+B. Mengambil Data items
+# Menampilkan data item pada table items yang memiliki harga di atas 1000000 (1 juta)
+    
+    SELECT * FROM items
+    WHERE price > 1000000;
+
+# Menampilkan data item pada tabel items yang name nya serupa dengan keyword "Uniklooh" 
+
+    SELECT * FROM items
+    WHERE name LIKE 'Uniklooh';
+
+C. Menampilkan data items join dengan kategori
+# Menampilkan data items yang dilengkapi dengan data nama kategori di masing-masing items
+
+    SELECT
+        items.name,
+        items.description,
+        items.price,
+        items.stock,
+        items.categories_id AS category_id,
+        categories.name AS kategori
+    FROM
+        items
+    JOIN
+        categories
+    ON
+        items.categories_id = categories.id;
+
+
+---Soal No 5----
+
+# Mengubah data pada tabel items untuk item dengan nama sumsang b50 harganya (price) menjadi 2500000.
+
+    UPDATE items
+    SET price = '2500000'
+    WHERE id = 1;
