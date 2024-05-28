@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-</head>
-<body>
+@extends('layout.master')
+
+@section('title')
+Halaman Register    
+@endsection
+
+@section('content')
+
     <h1>
         Buat Account Baru
     </h1>
@@ -45,5 +44,4 @@
         <input type="submit" value="Sign Up" /> <br> <br/>
         <a href="/">Back</a>
     </form>
-</body>
-</html>
+@endsection

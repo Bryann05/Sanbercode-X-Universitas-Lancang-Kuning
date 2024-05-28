@@ -18,5 +18,11 @@ use App\Http\Controllers\AuthController;
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/pages.welcome', [AuthController::class, 'welcome']);
+Route::get('/table', function(){
+    return view('pages.table');
+});
+Route::get('/data-tables', function(){
+    return view('pages.data-tables');
+});
 
 
